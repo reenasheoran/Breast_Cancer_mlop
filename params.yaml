@@ -1,0 +1,17 @@
+base:
+  project : "BreastCancer-Classification"
+  random_state: 0
+  target: diagnosis
+
+data_source:
+  gdrive_source: Original_data/BreastCancer.csv
+
+load_data:
+  raw_data_csv: data/raw/BreastCancer.csv
+
+split_data: 
+  train_path: data/processed/train_BC.csv
+  test_path: data/processed/test_BC.csv
+  test_size: 0.2
+
+model_dir: saved_models
