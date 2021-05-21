@@ -1,1 +1,9 @@
 stages:
+  load_data:
+    cmd: python source_files/load_data.py --config=params.yaml
+    deps:
+    - source_files/get_data.py
+    - source_files/load_data.py
+    - Original_data/BreastCancer.csv
+    outs:
+    - data/raw/BreastCancer.csv

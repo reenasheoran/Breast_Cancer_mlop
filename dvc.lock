@@ -1,0 +1,18 @@
+schema: '2.0'
+stages:
+  load_data:
+    cmd: python source_files/load_data.py --config=params.yaml
+    deps:
+    - path: Original_data/BreastCancer.csv
+      md5: 728371b4fe6b31828bf14dd646b3ef4d
+      size: 125204
+    - path: source_files/get_data.py
+      md5: bf5ededebcff8f1ad18851d3ead0d8b4
+      size: 617
+    - path: source_files/load_data.py
+      md5: face27a8204cb1c1e2b09016a688fc5b
+      size: 638
+    outs:
+    - path: data/raw/BreastCancer.csv
+      md5: fda4dac05a83d0c5e7ef6f7a4b7feb3c
+      size: 147662
