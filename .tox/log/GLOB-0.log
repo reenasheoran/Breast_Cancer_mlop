@@ -1,6 +1,6 @@
 action: GLOB, msg: packaging
 cwd: C:\Users\reena\desktop\BC
-cmd: 'c:\users\reena\anaconda3\python.exe' setup.py sdist --formats=zip --dist-dir 'C:\Users\reena\Desktop\BC\.tox\dist'
+cmd: 'c:\users\reena\anaconda3\python.exe' setup.py sdist --formats=zip --dist-dir '.tox\dist'
 running sdist
 running egg_info
 writing source_files.egg-info\PKG-INFO
@@ -36,8 +36,7 @@ copying tests\__init__.py -> source_files-0.0.1\tests
 copying tests\conftest.py -> source_files-0.0.1\tests
 copying tests\test_config.py -> source_files-0.0.1\tests
 Writing source_files-0.0.1\setup.cfg
-creating C:\Users\reena\Desktop\BC\.tox\dist
-creating 'C:\Users\reena\Desktop\BC\.tox\dist\source_files-0.0.1.zip' and adding 'source_files-0.0.1' to it
+creating '.tox\dist\source_files-0.0.1.zip' and adding 'source_files-0.0.1' to it
 adding 'source_files-0.0.1'
 adding 'source_files-0.0.1\source_files'
 adding 'source_files-0.0.1\source_files.egg-info'
