@@ -1,0 +1,62 @@
+action: GLOB, msg: packaging
+cwd: C:\Users\reena\desktop\BC
+cmd: 'c:\users\reena\anaconda3\python.exe' setup.py sdist --formats=zip --dist-dir 'C:\Users\reena\Desktop\BC\.tox\dist'
+running sdist
+running egg_info
+writing source_files.egg-info\PKG-INFO
+writing dependency_links to source_files.egg-info\dependency_links.txt
+writing top-level names to source_files.egg-info\top_level.txt
+reading manifest file 'source_files.egg-info\SOURCES.txt'
+writing manifest file 'source_files.egg-info\SOURCES.txt'
+running check
+c:\users\reena\anaconda3\lib\distutils\dist.py:259: UserWarning: 'licence' distribution option is deprecated; use 'license'
+  warnings.warn(msg)
+warning: check: missing required meta-data: url
+
+warning: check: missing meta-data: if 'author' supplied, 'author_email' must be supplied too
+
+creating source_files-0.0.1
+creating source_files-0.0.1\source_files
+creating source_files-0.0.1\source_files.egg-info
+creating source_files-0.0.1\tests
+copying files to source_files-0.0.1...
+copying README.md -> source_files-0.0.1
+copying setup.py -> source_files-0.0.1
+copying source_files\__init__.py -> source_files-0.0.1\source_files
+copying source_files\feature_selection.py -> source_files-0.0.1\source_files
+copying source_files\get_data.py -> source_files-0.0.1\source_files
+copying source_files\load_data.py -> source_files-0.0.1\source_files
+copying source_files\split_data.py -> source_files-0.0.1\source_files
+copying source_files\train_and_evaluate.py -> source_files-0.0.1\source_files
+copying source_files.egg-info\PKG-INFO -> source_files-0.0.1\source_files.egg-info
+copying source_files.egg-info\SOURCES.txt -> source_files-0.0.1\source_files.egg-info
+copying source_files.egg-info\dependency_links.txt -> source_files-0.0.1\source_files.egg-info
+copying source_files.egg-info\top_level.txt -> source_files-0.0.1\source_files.egg-info
+copying tests\__init__.py -> source_files-0.0.1\tests
+copying tests\conftest.py -> source_files-0.0.1\tests
+copying tests\test_config.py -> source_files-0.0.1\tests
+Writing source_files-0.0.1\setup.cfg
+creating C:\Users\reena\Desktop\BC\.tox\dist
+creating 'C:\Users\reena\Desktop\BC\.tox\dist\source_files-0.0.1.zip' and adding 'source_files-0.0.1' to it
+adding 'source_files-0.0.1'
+adding 'source_files-0.0.1\source_files'
+adding 'source_files-0.0.1\source_files.egg-info'
+adding 'source_files-0.0.1\tests'
+adding 'source_files-0.0.1\PKG-INFO'
+adding 'source_files-0.0.1\README.md'
+adding 'source_files-0.0.1\setup.cfg'
+adding 'source_files-0.0.1\setup.py'
+adding 'source_files-0.0.1\source_files\feature_selection.py'
+adding 'source_files-0.0.1\source_files\get_data.py'
+adding 'source_files-0.0.1\source_files\load_data.py'
+adding 'source_files-0.0.1\source_files\split_data.py'
+adding 'source_files-0.0.1\source_files\train_and_evaluate.py'
+adding 'source_files-0.0.1\source_files\__init__.py'
+adding 'source_files-0.0.1\source_files.egg-info\dependency_links.txt'
+adding 'source_files-0.0.1\source_files.egg-info\PKG-INFO'
+adding 'source_files-0.0.1\source_files.egg-info\SOURCES.txt'
+adding 'source_files-0.0.1\source_files.egg-info\top_level.txt'
+adding 'source_files-0.0.1\tests\conftest.py'
+adding 'source_files-0.0.1\tests\test_config.py'
+adding 'source_files-0.0.1\tests\__init__.py'
+removing 'source_files-0.0.1' (and everything under it)
