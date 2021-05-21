@@ -16,5 +16,6 @@ split_data:
 
 select_data:
   corr_val: 0.93
+  k: 15
 
 model_dir: saved_models
