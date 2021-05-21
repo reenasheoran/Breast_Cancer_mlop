@@ -10,4 +10,8 @@ def test_values():
     with pytest.raises(OutofRange):
         if a not in range(5,10):
             raise OutofRange
-    
+
+def test_second():
+    a=3
+    b=5
+    assert a!=b
