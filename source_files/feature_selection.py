@@ -43,7 +43,8 @@ def feature_select(config_path):
     corr_value=config["select_data"]["corr_val"]
     corr_features=high_cor(X,corr_value)
     X=X.drop(corr_features,axis=1)
-    return X, Y
+    final_df=pd.concat([X,Y],axis=1)
+    return final_df
     
 if __name__ == "__main__":
     args=argparse.ArgumentParser()

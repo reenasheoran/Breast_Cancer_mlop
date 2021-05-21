@@ -7,3 +7,13 @@ stages:
     - Original_data/BreastCancer.csv
     outs:
     - data/raw/BreastCancer.csv
+
+  split_data:
+    cmd: python source_files/split_data.py --config=params.yaml
+    deps:
+    - source_files/split_data.py
+    - source_files/feature_selection.py
+    - data/raw/BreastCancer.csv
+    outs:
+    - data/processed/test_BC.csv
+    - data/processed/train_BC.csv
