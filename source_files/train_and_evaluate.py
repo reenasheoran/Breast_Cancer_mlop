@@ -8,6 +8,7 @@ import json
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score
+from feature_selection import feature_select
 import numpy as np
 
 def evaluate_accuracy(actual,predicted):
@@ -38,6 +39,24 @@ def train_and_evaluate(config_path):
     accuracy = evaluate_accuracy(test_y,RFPrediction)
     print("Model accuracy: %s" % accuracy)
 
+    scores_file = config["report"]["scores"]
+    with open(scores_file,'w') as f:
+        scores ={ "acurracy": accuracy}
+        json.dump(scores,f,indent=4)
+    
+    k, corr_value = feature_select(config_path)
+    
+    params_file = config["report"]["params"]
+    with open(params_file,'w') as f:
+        params ={ "k": k,
+                  "correlation":corr_value}
+        json.dump(params,f, indent=4)
+    
+
+    os.makedirs(model_dir,exist_ok=True)
+    model_path = os.path.join(model_dir,"model.joblib")
+
+    joblib.dump(RF,model_path)
 
 
 if __name__ == "__main__":

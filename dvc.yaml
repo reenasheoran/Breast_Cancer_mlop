@@ -12,8 +12,28 @@ stages:
     cmd: python source_files/split_data.py --config=params.yaml
     deps:
     - source_files/split_data.py
-    - source_files/feature_selection.py
-    - data/raw/BreastCancer.csv
+    - data/filtered/BreastCancer.csv
+    params:
+    - select_data.corr_val
+    - select_data.k
     outs:
     - data/processed/test_BC.csv
     - data/processed/train_BC.csv
+  
+  train_and_evaluate:
+    cmd: python source_files/train_and_evaluate.py --config=params.yaml
+    deps:
+    - data/processed/train_BC.csv
+    - data/processed/test_BC.csv 
+    - source_files/train_and_evaluate.py
+    - source_files/feature_selection.py
+    params:
+    - select_data.corr_val
+    - select_data.k
+    metrics:
+    - report/scores.json:
+        cache: false
+    - report/params.json:
+        cache: false
+    outs:
+    - saved_models/model.joblib

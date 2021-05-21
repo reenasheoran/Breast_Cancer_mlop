@@ -9,6 +9,9 @@ data_source:
 load_data:
   raw_data_csv: data/raw/BreastCancer.csv
 
+filter_data:
+  filter_data_csv: data/filtered/BreastCancer.csv
+
 split_data: 
   train_path: data/processed/train_BC.csv
   test_path: data/processed/test_BC.csv
@@ -19,3 +22,7 @@ select_data:
   k: 15
 
 model_dir: saved_models
+
+report:
+  params: report/params.json
+  scores: report/scores.json

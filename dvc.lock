@@ -19,19 +19,49 @@ stages:
   split_data:
     cmd: python source_files/split_data.py --config=params.yaml
     deps:
-    - path: data/raw/BreastCancer.csv
-      md5: fda4dac05a83d0c5e7ef6f7a4b7feb3c
-      size: 147662
-    - path: source_files/feature_selection.py
-      md5: f8806573d113d17f4e3b3b2de6b2a6eb
-      size: 1583
+    - path: data/filtered/BreastCancer.csv
+      md5: 543f00799b881046007fba6c3e2c8204
+      size: 37109
     - path: source_files/split_data.py
-      md5: 51b53450baf0e61d1151726723303d59
-      size: 1005
+      md5: 416b713e7e1f53837e6462ea31f8b4fe
+      size: 1090
+    params:
+      params.yaml:
+        select_data.corr_val: 0.93
+        select_data.k: 15
     outs:
     - path: data/processed/test_BC.csv
-      md5: 9800ed09e768b36eb71af6d82d30a62e
-      size: 7488
+      md5: f8be7d8cbc0fe0d4f84e4a86c8975174
+      size: 8262
     - path: data/processed/train_BC.csv
-      md5: 01c79a6b5753838564da3f4a4fe1fea4
-      size: 29761
+      md5: 2c1dd89913ded4b827efef46bf39ae15
+      size: 32450
+  train_and_evaluate:
+    cmd: python source_files/train_and_evaluate.py --config=params.yaml
+    deps:
+    - path: data/processed/test_BC.csv
+      md5: f8be7d8cbc0fe0d4f84e4a86c8975174
+      size: 8262
+    - path: data/processed/train_BC.csv
+      md5: 2c1dd89913ded4b827efef46bf39ae15
+      size: 32450
+    - path: source_files/feature_selection.py
+      md5: a1404bc7fd34368eae68028d59f80cc2
+      size: 1731
+    - path: source_files/train_and_evaluate.py
+      md5: 8db09e6304aa3bb4d9d7e367e1f216f9
+      size: 2015
+    params:
+      params.yaml:
+        select_data.corr_val: 0.93
+        select_data.k: 15
+    outs:
+    - path: report/params.json
+      md5: 24748fe4a94fae415969aa9878dfa27b
+      size: 43
+    - path: report/scores.json
+      md5: dd4575688eab34e5f91052d98d8daba3
+      size: 28
+    - path: saved_models/model.joblib
+      md5: 44a29d32dfc2dc4a5e4b5aca678bdc1c
+      size: 413828

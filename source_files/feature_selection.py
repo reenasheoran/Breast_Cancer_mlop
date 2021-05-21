@@ -2,9 +2,9 @@ import os
 from get_data import read_params
 import argparse
 import pandas as pd
-
 from sklearn.feature_selection import mutual_info_classif
 from sklearn.feature_selection import SelectKBest
+
 
 def high_cor(dataset,threshold):
     col_corr=set()
@@ -36,7 +36,10 @@ def feature_select(config_path):
     corr_features=high_cor(X,corr_value)
     X=X.drop(corr_features,axis=1)
     final_df=pd.concat([X,Y],axis=1)
-    return final_df
+    filter_data_path = config["filter_data"]["filter_data_csv"]
+    final_df.to_csv(filter_data_path,sep=',',index=False,encoding='utf-8')
+    return k, corr_value
+
     
 if __name__ == "__main__":
     args=argparse.ArgumentParser()
