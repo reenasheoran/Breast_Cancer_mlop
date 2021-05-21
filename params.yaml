@@ -14,4 +14,7 @@ split_data:
   test_path: data/processed/test_BC.csv
   test_size: 0.2
 
+select_data:
+  corr_val: 0.93
+
 model_dir: saved_models

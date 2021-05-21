@@ -10,6 +10,7 @@ def load_save(config_path):
     df['diagnosis']=pd.get_dummies(df['diagnosis'],drop_first=True)
     raw_data_path = config["load_data"]["raw_data_csv"]
     df.to_csv(raw_data_path,sep=',',index=False,encoding='utf-8')
+    
 
 
 if __name__ == "__main__":
