@@ -1,3 +1,6 @@
+# local package
+-e .
+# third party
 dvc
 dvc[gdrive]
 sklearn
