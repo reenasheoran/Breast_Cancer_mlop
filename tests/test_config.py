@@ -1,6 +1,13 @@
+import pytest
 
+class OutofRange(Exception):
+    def __init__(self,message="The value is not in range"):
+        self.message=message
+        super().__init__(self.message)
 
 def test_values():
     a=3
-    b=3
-    assert a==b
+    with pytest.raises(OutofRange):
+        if a not in range(5,10):
+            raise OutofRange
+    
