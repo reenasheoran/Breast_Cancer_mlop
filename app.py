@@ -2,8 +2,7 @@ from flask import Flask, render_template, request, jsonify
 import os
 import yaml
 import joblib
-import numpy as numpy
-#from classification_BC import classification
+import numpy as np
 
 params_path="params.yaml"
 webapp_root="webapp"
@@ -27,8 +26,19 @@ def predict(data):
     return pred[0]
 
 def api_response(request):
-    pass
-
+    try:
+        data = np.array([list(request.json.values())])
+        response = predict(data)
+        if response == 1:
+            response='The cancer is Malignant'
+        else:
+             response='The cancer is Bengin'
+        response = {"response": response}
+        return response
+    except Exception as e:
+        print(e)
+        error = {"error":"something went wrong!!! TRY AGAIN"}
+        return error
 
 @app.route('/',methods=["GET","POST"])
 def execute():
@@ -45,8 +55,9 @@ def execute():
                 return render_template("index.html",response=response)
 
             elif request.json:
-                res = api_response(request)
-                return jsonify(res)
+                response= api_response(request)
+                return jsonify(response)
+
         except Exception as e:
             print(e)
             error= {"error":"Something went wrong!!! TRY AGAIN"}
@@ -56,4 +67,4 @@ def execute():
 
 
 if __name__ == "__main__":
-    app.run(host="localhost",port = 5000,debug=True)
+    app.run(host="0.0.0.0",port = 5000,debug=True)
